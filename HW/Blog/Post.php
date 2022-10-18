@@ -1,12 +1,12 @@
 <?php
     namespace HW\Blog;
 
-    use HW\Person\Person;
+    use HW\User\User_Person;
 
     class Post {
         public function __construct
         (
-            private Person $author,
+            private User_Person $author,
             private string $text
         ) {
 

@@ -1,12 +1,13 @@
 <?php 
-    namespace HW\Person;
+    namespace HW\User;
 
     use DateTimeImmutable;
-    use HW\Person\User;
+    // use HW\User\Name;
+    use HW\User_Name\User\User_Name;
 
-    class Person {
+    class User_Person {
         public function __construct(
-            private User $name,
+            private User_Name $name,
             private DateTimeImmutable $registeredOn
         ) {
 

@@ -1,7 +1,7 @@
 <?php
-    namespace HW\Person;
+    namespace HW\User;
 
-    class User {
+    class Name {
         
         public function __construct(
             private string $firstName,
