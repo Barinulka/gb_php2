@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Blog;
 
 class Post
@@ -7,8 +8,8 @@ class Post
         private int $id,
         private User $user,
         private string $text
-    )
-    {}
+    ) {
+    }
 
     /**
      * @return integer
@@ -22,7 +23,7 @@ class Post
      * @param integer $id
      * @return void
      */
-    public function setId(int $id): void 
+    public function setId(int $id): void
     {
         $this->id = $id;
     }
@@ -30,23 +31,23 @@ class Post
     /*
     * @return User
     */
-   public function getUser (): User
-   {
-       return $this->user;
-   }
+    public function getUser(): User
+    {
+        return $this->user;
+    }
 
-   /**
-    * @param User $user
-    * @return void
-    */
-   public function setUser (User $user): void
-   {
-       $this->user = $user;
-   }
+    /**
+     * @param User $user
+     * @return void
+     */
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
+    }
 
     /**
      * @return string
-     */ 
+     */
     public function getText(): string
     {
         return $this->text;
@@ -54,8 +55,8 @@ class Post
 
     /**
      * @return  string
-     */ 
-    public function setText(string $text) : Post
+     */
+    public function setText(string $text): Post
     {
         $this->text = $text;
         return $this;
@@ -65,6 +66,4 @@ class Post
     {
         return "$this->user пишет: $this->text" . PHP_EOL;
     }
-
-    
 }

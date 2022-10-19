@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Person;
 
 class Name
@@ -6,8 +7,8 @@ class Name
     public function __construct(
         private string $firtName,
         private string $lastName
-    )
-    {}
+    ) {
+    }
 
     /**
      * @return string
@@ -20,7 +21,7 @@ class Name
     /**
      * @param string $firtName
      * @return void
-     */   
+     */
     public function setFirtName(string $firtName): void
     {
         $this->firtName = $firtName;
@@ -37,7 +38,7 @@ class Name
     /**
      * @param string $LastName
      * @return void
-     */   
+     */
     public function setLastName(string $lastName): void
     {
         $this->lastName = $lastName;
@@ -45,7 +46,6 @@ class Name
 
     public function __toString()
     {
-        return $this->firtName . ' ' . $this->lastName; 
+        return $this->firtName . ' ' . $this->lastName;
     }
-
 }

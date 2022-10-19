@@ -1,15 +1,16 @@
 <?php
+
 namespace App\Blog;
 
-class Comment  
+class Comment
 {
     public function __construct(
         private int $id,
         private User $user,
         private Post $post,
         private string $text
-    )
-    {}
+    ) {
+    }
 
     /**
      * @return integer
@@ -31,28 +32,28 @@ class Comment
     /*
     * @return User
     */
-   public function getUser (): User
-   {
-       return $this->user;
-   }
+    public function getUser(): User
+    {
+        return $this->user;
+    }
 
-   /**
-    * @param User $user
-    * @return void
-    */
-   public function setUser (User $user): void
-   {
-       $this->user = $user;
-   }
+    /**
+     * @param User $user
+     * @return void
+     */
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
+    }
 
-   /*
+    /*
     * @return Post
     */
     public function getPost(): Post
     {
         return $this->post;
     }
- 
+
     /**
      * @param Post $post
      * @return void
@@ -64,7 +65,7 @@ class Comment
 
     /**
      * @return string
-     */ 
+     */
     public function getText(): string
     {
         return $this->text;
@@ -72,7 +73,7 @@ class Comment
 
     /**
      * @return  string
-     */ 
+     */
     public function setText(string $text)
     {
         $this->text = $text;
