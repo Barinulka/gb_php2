@@ -1,11 +1,12 @@
 <?php
 namespace App\Blog;
 
-class Post
+class Comment  
 {
     public function __construct(
         private int $id,
         private User $user,
+        private Post $post,
         private string $text
     )
     {}
@@ -22,7 +23,7 @@ class Post
      * @param integer $id
      * @return void
      */
-    public function setId(int $id): void 
+    public function setId(int $id): void
     {
         $this->id = $id;
     }
@@ -44,6 +45,23 @@ class Post
        $this->user = $user;
    }
 
+   /*
+    * @return Post
+    */
+    public function getPost(): Post
+    {
+        return $this->post;
+    }
+ 
+    /**
+     * @param Post $post
+     * @return void
+     */
+    public function setPost(Post $post): void
+    {
+        $this->post = $post;
+    }
+
     /**
      * @return string
      */ 
@@ -55,16 +73,13 @@ class Post
     /**
      * @return  string
      */ 
-    public function setText(string $text) : Post
+    public function setText(string $text)
     {
         $this->text = $text;
-        return $this;
     }
 
     public function __toString()
     {
-        return "$this->user пишет: $this->text" . PHP_EOL;
+        return "$this->user оставил комментарий: $this->text" . PHP_EOL;
     }
-
-    
 }

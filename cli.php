@@ -1,8 +1,9 @@
 <?php
-   use App\Person\Person;
-   use App\Person\User;
-   use App\Blog\Post;
-   use App\Comment\Comment;
+
+use App\Blog\Comment;
+use App\Blog\Post;
+use App\Blog\User;
+use App\Person\Name;
 
    require_once __DIR__ . '/vendor/autoload.php';
    
@@ -16,52 +17,44 @@
 
    echo 'use argv: "' . $param . '"' . PHP_EOL;
 
+   $name = new Name(
+      $faker->firstName(),
+      $faker->lastName()
+   );
+
+   $user = new User(
+      $faker->randomDigitNotNull(),
+      $name
+   ); 
+
    switch($param) {
       case 'user' : 
-         echo user($faker->firstName(), $faker->lastName()) . PHP_EOL;
+         echo $user;
          break;
       case 'post' : 
-         echo post(user($faker->firstName(), $faker->lastName()), $faker->text()) . PHP_EOL;
+         $post = new Post(
+            $faker->randomDigitNotNull(),
+            $user,
+            $faker->text()
+         );
+         echo $post;
          break;
       case 'comment' : 
-         echo comment(user($faker->firstName(), $faker->lastName()), $faker->sentence()) . PHP_EOL;
+         $post = new Post(
+            $faker->randomDigitNotNull(),
+            $user,
+            $faker->text()
+         );
+         $comment = new Comment(
+            $faker->randomDigitNotNull(),
+            $user,
+            $post,
+            $faker->sentence()
+         );
+
+         echo $comment;
          break;
 
       default : 
          echo 'Use command "user", "post", "comment"' . PHP_EOL;
-   }
-
-
-   function user($firstName, $lastName) {
-      $user = new User(
-         $firstName,
-         $lastName
-      );
-
-      return $user;
-   }
-
-
-   function post($user, $text) {
-      $post = new Post(
-         new Person(
-            $user,
-            new DateTimeImmutable()
-         ),
-         $text,
-      );
-   
-      return $post;
-   }
-
-   function comment($user, $comment) {
-      $comment = new Comment(
-         new Person(
-            $user,
-            new DateTimeImmutable()
-         ),
-         $comment,
-      );
-   
-      return $comment;
    }
